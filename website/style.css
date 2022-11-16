@@ -1,0 +1,213 @@
+body {
+  /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: radial-gradient(closest-corner, #595880, #0d1022);
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* grid-auto-rows: minmax(150px, auto); */
+  /* grid-template-columns:  */
+  height: 100vh;
+  /* background: #f23557; */
+  color: #fff;
+  /* grid-gap: 1em; */
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.current-weather-icon {
+  background-image: url("./assets/1-cloud-flat.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 500px;
+  height: 400px;
+  order: 0;
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4rem;
+  order: -1;
+}
+.headline > i {
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.headline > h2 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+}
+
+.zip {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.zip > label {
+  text-align: left;
+  font-size: 3.5rem;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.zip > input {
+  border-radius: 2rem;
+  height: 100px;
+  width: 100%;
+  background: #c2e1fe;
+  font-size: 2.8rem;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  text-align: center;
+  letter-spacing: 0.6rem;
+  font-weight: 700;
+}
+
+.zip > input::placeholder {
+  font-weight: 500;
+  text-align: center;
+  color: #10132694;
+  letter-spacing: 0;
+  font-size: 3.5rem;
+  width: 100%;
+}
+
+.zip > input:focus,
+.zip > input:active {
+  letter-spacing: 0;
+}
+
+.feel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.feel > label {
+  text-align: left;
+  font-size: 3.5rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.feel > textarea {
+  width: 100%;
+  height: 400px;
+  border-radius: 2rem;
+  background-color: #c2e1fe;
+  font-size: 4rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.feel > textarea:focus,
+.feel > textarea:active {
+  text-align: left;
+  padding: 1rem;
+}
+
+.feel > textarea::placeholder {
+  font-size: 4rem;
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.feel > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  border-radius: 2rem;
+  width: 100%;
+  /* width: 400px;
+  height: 100px; */
+  padding: 10px 40px;
+  background: #3b4a6b;
+  color: #c2e1fe;
+  border: none;
+  font-size: 5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  box-shadow: 0px 0px 15px #101326;
+}
+
+.feel > button:active {
+  background-color: #97a6d1;
+  color: #101326;
+}
+.entry {
+  background: rgba(59, 74, 107, 0.4);
+}
+
+#entryHolder {
+}
+
+#date {
+}
+
+#temp {
+}
+
+#content {
+}
+
+.title {
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label {
+  display: block;
+  font-size: 27px;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: #10132694;
+  font-family: "Poppins", sans-serif;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #10132694;
+  font-family: "Poppins", sans-serif;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #10132694;
+  font-family: "Poppins", sans-serif;
+}
