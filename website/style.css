@@ -1,5 +1,5 @@
 body {
-  /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
+  width: 100vw;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
 .container {
   display: block;
   margin: 0 auto;
-  width: 90%;
+  width: 90vw;
   height: auto;
 }
 
@@ -125,12 +125,13 @@ body {
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   text-align: center;
+  resize: none;
+  margin-bottom: 3rem;
 }
 
 .feel > textarea:focus,
 .feel > textarea:active {
   text-align: left;
-  padding: 1rem;
 }
 
 .feel > textarea::placeholder {
@@ -143,7 +144,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
   border-radius: 2rem;
   width: 100%;
   /* width: 400px;
@@ -156,29 +156,37 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   box-shadow: 0px 0px 15px #101326;
+  margin-bottom: 2rem;
 }
 
 .feel > button:active {
   background-color: #97a6d1;
-  color: #101326;
+  color: #303033;
 }
 .entry {
-  background: rgba(59, 74, 107, 0.4);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background-color: #c2e1fe;
+  border-radius: 2rem;
+  color: #0d1022;
+  padding: 2rem 0;
+  /* margin-top: 2rem; */
+  margin-bottom: 2rem;
+}
+.entry > .title {
+  font-weight: 800;
+  font-size: 4rem;
 }
 
 #entryHolder {
-}
-
-#date {
-}
-
-#temp {
-}
-
-#content {
-}
-
-.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  font-weight: 600;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -210,4 +218,54 @@ button:focus {
   /* Microsoft Edge */
   color: #10132694;
   font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (max-width: 568px) {
+  .headline {
+    margin-top: 1rem;
+  }
+
+  .headline > h2,
+  .headline > i {
+    font-size: 2rem;
+  }
+  .zip {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .zip > label {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .zip > input {
+    font-size: 2rem;
+  }
+  .zip > input::placeholder {
+    font-size: 2rem;
+  }
+
+  .feel > button {
+    align-self: flex-end;
+    width: 50%;
+    font-size: 2rem;
+  }
+  .feel > label {
+    font-size: 1.5rem;
+  }
+  .feel > textarea {
+    height: 15rem;
+    font-size: 2rem;
+    text-align: left;
+    padding-top: 0.2rem;
+    padding-left: 2rem;
+  }
+
+  .feel > textarea::placeholder {
+    font-size: 2rem;
+    text-align: left;
+    padding-top: 0.2rem;
+  }
 }

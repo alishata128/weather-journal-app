@@ -1,6 +1,6 @@
 /* Global Variables */
 const baseURL = "http://api.openweathermap.org/data/2.5/weather";
-const apiKEY = "00ad4bfdc8c2300b65d3dd09e8752904";
+const apiKey = "00ad4bfdc8c2300b65d3dd09e8752904";
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -10,30 +10,33 @@ const feelings = document.getElementById("feelings");
 const getBtn = document.getElementById("generate");
 
 getBtn.addEventListener("click", generateData);
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    generateData();
+  }
+});
 
 function generateData(e) {
   e.preventDefault();
-  if (zipInput.value !== "") {
-    getWeather(baseURL, zipInput.value, apiKEY)
-      .then(function (DATA) {
+  if (zipInput.value !== "" && feelings.value !== "") {
+    getWeather(baseURL, zipInput.value, apiKey)
+      .then(function (clientData) {
         postData("/add", {
           date: newDate,
-          temp: DATA.main.temp,
-          content: content,
+          temp: clientData.main.temp,
+          content: feelings.value,
         });
       })
-      .then(function (DATA) {
-        console.log(DATA);
-        retrieveData();
+      .then(function (clientData) {
+        updateInterface();
       });
   }
 }
 
-async function getWeather(baseUrl, zipCode, apiKey) {
+async function getWeather(baseUrl, zipCode, apiKEY) {
   const response = await fetch(`${baseUrl}?zip=${zipCode}&appid=${apiKey}`);
   try {
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log("error", error);
@@ -55,22 +58,23 @@ async function postData(url = "", data = {}) {
   });
 
   try {
-    const newDATA = await request.json();
-    return newDATA;
+    const postedData = await request.json();
+    return postedData;
   } catch (error) {
     console.log(error);
   }
 }
 
-const retrieveData = async () => {
+const updateInterface = async () => {
   const request = await fetch("/all");
   try {
     const allData = await request.json();
     console.log(allData);
     // Write updated data to DOM elements
+    document.getElementById("entry").style.display = "flex";
     document.getElementById("temp").innerHTML =
       Math.round(allData.temp) + " degrees";
-    document.getElementById("content").innerHTML = allData.feel;
+    document.getElementById("content").innerHTML = allData.content;
     document.getElementById("date").innerHTML = allData.date;
   } catch (error) {
     console.log("error", error);
